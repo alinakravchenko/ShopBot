@@ -1,12 +1,20 @@
+import { useState, useEffect } from 'react';
 import './App.css';
+import Card from './Components/Card/Card';
 import Button from './Components/Button/Button';
+
+const {getData} = require("./db/db")
+const foods = getData();
+
 function App() {
   return (
     <div>
-      <h1>Hi I`m shopbot</h1>
-      <Button type={"add"} title={"+"} disable={false} />
-      <Button type={"remove"} title={"-"} disable={false} />
-      <Button type={"checkout"} title={"checkout"} disable={false} />
+      <h1 className='heading'>Food Order</h1>
+      
+      <div className='cards__container'>
+        {foods.map((food)=>{return(<Card food={food} key={food.id} /> //onAdd={onAdd} onRemove={onRemove}
+        );})} 
+      </div>
     </div>
   );
 }
