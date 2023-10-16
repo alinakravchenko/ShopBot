@@ -8,11 +8,11 @@ function Card({food, onAdd, onRemove}) {
     const {title, Image, price, id} = food
     const handleIncrement=()=>{
         setCount(count + 1);
-        //onAdd(food)
+        onAdd(food)
     }
     const handleDecrement=()=>{
         setCount(count - 1);
-        //onRemove(food)
+        onRemove(food)
     }
  return (
     <div className='card'>

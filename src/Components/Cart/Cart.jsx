@@ -1,8 +1,19 @@
+//6587063304:AAF0vq9a-e1AGvf4dExe8yNEU9OTzdilJiQ
 import React from 'react'
 import "./Cart.css"
-function Cart({cartItems}) {
+import Button from '../Button/Button'
+function Cart({cartItems, onCheckout}) {
+  const totalPrice = cartItems.reduce((a,c)=>a + c.price*c.quantity, 0);
   return (
-    <div>Cart</div>
+    <div className='cart__container'>
+      {cartItems.length === 0 ? "No Items in cart" : ""}
+      <br/>
+      <span>Total price: ${totalPrice.toFixed(2)}</span>
+      <Button title={`${cartItems.length===0 ? "Order !":"Checkout"}`}
+      type={"checkout"}
+      disable={cartItems.length === 0 ? true : false}
+      onClick={onCheckout}/>
+    </div>
   )
 }
 
