@@ -26,6 +26,10 @@ function App() {
     setCartItems(cartItems.map((x)=>x.id===food.id ? {...exist, quantity: exist.quantity -1} :x))
   }
   }
+  const onCheckout = () => {
+    tele.MainButton.text = "Pay"
+    tele.MainButton.show();
+  }
   return (
     <div>
       <h1 className='heading'>Food Order</h1>
